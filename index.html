@@ -1,14 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./js/jq.js"></script>
-</head>
-<body>
-    
-</body>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .clock {
+        border: 10px solid #000;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+      }
+      .hour {
+        position: absolute;
+        width: 45px;
+        height: 5px;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        margin-top: -2px;
+        background-color: #000;
+        animation: rotate 72s infinite linear;
+      }
+      .min {
+        position: absolute;
+        width: 70px;
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        background: #000;
+        margin-top: -2px;
+        animation: rotate 36s infinite linear;
+      }
+      .circle {
+        width: 300px;
+        height: 300px;
+        position: relative;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(-180deg);
+        }
+        to {
+          transform: rotate(180deg);
+        }
+      }
+      .heart {
+        font-size: 30px;
+        font-weight: 800;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+      .heart1 {
+        top: 20px;
+        left: 50%;
+      }
+      .heart2 {
+        bottom: -10px;
+        left: 50%;
+      }
+      .heart3 {
+        top: 50%;
+        right: 0;
+      }
+      .heart4 {
+        top: 50%;
+        left: 20px;
+      }
+      .circle div {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: absolute;
+      }
+      .red{
+          background-color: red;
+          z-index: 300;
+          left:20px;
+      }
+      .yellow{
+          background-color: yellow;
+          z-index: 200;
+          left: 77px;
+          top:100px
+      }
+      .blue{
+          background-color: blue;
+          right: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hour"></div>
+      <div class="min"></div>
+      <i class="fa fa-heart-o heart heart1"></i>
+      <i class="fa fa-heart-o heart heart2"></i>
+      <i class="fa fa-heart-o heart heart3"></i>
+      <i class="fa fa-heart-o heart heart4"></i>
+    </div>
+    <div class="circle">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="blue"></div>
+    </div>
+    <audio id="audio1" autoplay>
+        <source src="./MP3/Interview part1 .m4a" type="audio/mpeg" />
+    </audio>
+  </body>
+  <script>
+      document.body.onclick = function(){
+          let audio = document.getElementById('audio1');
+          audio.play();
+      }
+  </script>
 </html>
